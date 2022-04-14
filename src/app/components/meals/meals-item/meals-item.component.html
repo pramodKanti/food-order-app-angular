@@ -1,0 +1,10 @@
+<li class="meal">
+  <div>
+    <h3>{{ meal.name }}</h3>
+    <div class="description">{{ meal.description }}</div>
+    <div class="price">${{ meal.price }}</div>
+  </div>
+  <div>
+    <app-meal-item-form mealId="{{ meal.id }}"></app-meal-item-form>
+  </div>
+</li>

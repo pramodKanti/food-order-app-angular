@@ -1,0 +1,13 @@
+<li class="cart-item">
+  <div>
+    <h2>{{ "item.name" }}</h2>
+    <div class="summary">
+      <span class="price">${{ "item.price" }}</span>
+      <span class="amount">x {{ "item.amount" }}</span>
+    </div>
+  </div>
+  <div class="actions">
+    <button (click)="onRemove()">−</button>
+    <button (click)="onAdd()">+</button>
+  </div>
+</li>

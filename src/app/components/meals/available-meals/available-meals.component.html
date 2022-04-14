@@ -1,0 +1,18 @@
+<section class="meals">
+  <app-card>
+    <div>
+      <app-loading-indicator *ngIf="isLoading"></app-loading-indicator>
+      <div *ngIf="!isLoading && !hasError">
+        <app-meals-item
+          *ngFor="let meal of meals"
+          [meal]="meal"
+        ></app-meals-item>
+      </div>
+      <app-error-modal
+        *ngIf="!isLoading && hasError"
+        heading="somehting Went Wrong"
+        message="ErrorMessage"
+      ></app-error-modal>
+    </div>
+  </app-card>
+</section>

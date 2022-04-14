@@ -1,0 +1,50 @@
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  background-color: white;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  padding: 0 16px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  text-align: center;
+  z-index: 10; /* Adjust according to your needs */
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 40rem;
+    left: calc(50% - 20rem);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
