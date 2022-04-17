@@ -1,3 +1,11 @@
+.cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 20rem;
+  overflow: auto;
+}
+
 .total {
   display: flex;
   justify-content: space-between;
@@ -5,6 +13,36 @@
   font-weight: bold;
   font-size: 1.5rem;
   margin: 1rem 0;
+}
+
+.actions {
+  text-align: right;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #8a2b06;
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #5a1a01;
+  border-color: #5a1a01;
+  color: white;
+}
+
+.actions .button--alt {
+  color: #8a2b06;
+}
+
+.actions .button {
+  background-color: #8a2b06;
+  color: white;
 }
 
 .backdrop {
@@ -18,17 +56,16 @@
 }
 
 .modal {
-  background-color: white;
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  overflow: auto;
-  padding: 0 16px;
   position: fixed;
-  right: 0;
-  top: 0;
-  text-align: center;
-  z-index: 10; /* Adjust according to your needs */
+  top: 15vh;
+  left: 5%;
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
 }
 
 @media (min-width: 768px) {

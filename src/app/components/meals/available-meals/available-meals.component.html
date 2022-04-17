@@ -9,7 +9,7 @@
         ></app-meals-item>
       </div>
       <app-error-modal
-        *ngIf="!isLoading && hasError"
+        *ngIf="!isLoading && hasError && !modalClose"
         heading="somehting Went Wrong"
         message="ErrorMessage"
       ></app-error-modal>

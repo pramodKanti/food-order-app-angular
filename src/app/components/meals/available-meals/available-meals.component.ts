@@ -15,6 +15,7 @@ export class AvailableMealsComponent implements OnInit {
   isLoading: boolean = false;
   hasError: boolean = false;
   ErrorMessage: string = '';
+  modalClose: boolean = true;
 
   constructor(private http: HttpClient, private cartService: CartService) {}
 
@@ -29,7 +30,7 @@ export class AvailableMealsComponent implements OnInit {
           for (let key in meals) {
             this.meals = meals[key];
           }
-
+          this.cartService.mealItems.next(this.meals);
           console.log(this.meals);
           this.isLoading = false;
         },
@@ -39,5 +40,10 @@ export class AvailableMealsComponent implements OnInit {
           this.ErrorMessage = error.message;
         }
       );
+
+    this.cartService.modalClose.subscribe((modalClose) => {
+      this.hasError = false;
+      this.modalClose = modalClose;
+    });
   }
 }

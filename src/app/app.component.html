@@ -2,3 +2,8 @@
 <app-cart *ngIf="cartShow"></app-cart>
 <app-meals-summary></app-meals-summary>
 <app-meals></app-meals>
+<app-error-modal
+  *ngIf="orderPlaced"
+  heading="order Placed Succesfully"
+  message="Thanks You being a valuble costumer"
+></app-error-modal>

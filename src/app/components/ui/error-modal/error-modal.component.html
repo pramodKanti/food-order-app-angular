@@ -2,6 +2,8 @@
   <h2>{{ heading }}</h2>
   <p>{{ message }}</p>
   <div class="error-modal__actions">
-    <button type="button" className="button">Okay</button>
+    <button type="button" className="button" (click)="modalClose()">
+      Okay
+    </button>
   </div>
 </div>

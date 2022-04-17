@@ -1,1 +1,71 @@
-<p>checkout-form works!</p>
+<form (ngSubmit)="onOrder(F)" #F="ngForm" class="form">
+  <div class="control">
+    <label htmlFor="name">Your Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      ngModel
+      #name="ngModel"
+      required
+      [minLength]="4"
+      [ngStyle]="{ borderColor: formValid && !name.valid ? 'red' : '' }"
+    />
+    <span
+      [ngStyle]="{ color: formValid && !name.valid ? 'red' : '' }"
+      *ngIf="name.touched && !name.valid"
+      >Please Enter a valid name</span
+    >
+  </div>
+  <div class="control">
+    <label htmlFor="street">Street</label>
+    <input
+      type="text"
+      id="street"
+      name="street"
+      #street="ngModel"
+      ngModel
+      required
+      [maxlength]="5"
+      [ngStyle]="{ borderColor: formValid && !name.valid ? 'red' : '' }"
+    />
+    <span *ngIf="street.touched && !street.valid"
+      >Please Enter a street name</span
+    >
+  </div>
+  <div class="control">
+    <label htmlFor="postal">Postal Code</label>
+    <input
+      type="text"
+      id="postal"
+      name="postalCode"
+      ngModel
+      #postalCode="ngModel"
+      required
+      [minlength]="6"
+      [ngStyle]="{ borderColor: formValid && !name.valid ? 'red' : '' }"
+    />
+    <span *ngIf="postalCode.touched && !postalCode.valid"
+      >Please Enter a postal code</span
+    >
+  </div>
+  <div class="control">
+    <label htmlFor="city">City</label>
+    <input
+      type="text"
+      id="city"
+      name="city"
+      #city="ngModel"
+      required
+      ngModel
+      [minlength]="4"
+      [ngStyle]="{ borderColor: formValid && !name.valid ? 'red' : '' }"
+    />
+    <span *ngIf="city.touched && !city.valid">Please Enter a valid city</span>
+  </div>
+  <p *ngIf="!F.valid && formValid">Fill Form Correctlly</p>
+  <div class="actions">
+    <button (click)="onCancel()">Cancel</button>
+    <button type="submit" class="submit">Confirm</button>
+  </div>
+</form>

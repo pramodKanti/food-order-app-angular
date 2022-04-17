@@ -1,11 +1,33 @@
 <div class="backdrop" (click)="cartCloseHandler()"></div>
-
-<div class="modal">
-  <div class="content">
-    <app-cart-item></app-cart-item>
-    <div class="total">
-      <span>TotalAmount </span>
-      <span>${{ 23 }}</span>
+<p-dialog
+  position="top"
+  [showHeader]="false"
+  [visible]="cartShow"
+  styleClass="modal"
+>
+  <div>
+    <div class="content">
+      <app-cart-item
+        *ngFor="let item of cartItem"
+        [item]="item"
+      ></app-cart-item>
+      <div class="total">
+        <span>TotalAmount </span>
+        <span>${{ totalAmount }}</span>
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="actions">
+    <button (click)="cartCloseHandler()" class="btn--alt">Close</button>
+
+    <button
+      *ngIf="cartItem.length !== 0 && !isOrder"
+      (click)="orderHandler()"
+      className="button"
+    >
+      order
+    </button>
+  </div>
+  <app-checkout-form *ngIf="isOrder"></app-checkout-form>
+</p-dialog>

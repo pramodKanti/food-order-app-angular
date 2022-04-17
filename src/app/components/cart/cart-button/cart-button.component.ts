@@ -7,11 +7,15 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./cart-button.component.css'],
 })
 export class CartButtonComponent implements OnInit {
-  badge: number = 3;
+  badge: number = 0;
 
   constructor(private cartService: CartService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.cartService.updateBadge.subscribe((badge: number) => {
+      this.badge = badge;
+    });
+  }
 
   cartToggle() {
     this.cartService.cartBtn.next(true);

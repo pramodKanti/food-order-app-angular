@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Meal } from 'src/app/modal/meal';
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -7,15 +8,23 @@ import { Meal } from 'src/app/modal/meal';
   styleUrls: ['./cart-item.component.css'],
 })
 export class CartItemComponent implements OnInit {
-  item: Meal;
+  @Input() item: Meal = {
+    name: '',
+    price: 0,
+    amount: 0,
+    description: '',
+    id: '',
+  };
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
-  ngOnInit() {
-    console.log('sdfewg');
+  ngOnInit() {}
+
+  onRemove() {
+    this.cartService.removeToCart(this.item);
   }
 
-  onRemove() {}
-
-  onAdd() {}
+  onAdd() {
+    this.cartService.addToCart(this.item);
+  }
 }
